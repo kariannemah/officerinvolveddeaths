@@ -33,16 +33,7 @@
       zoom: 6
     })
 
-      .done(function(vis, layers) {
-        var torqueLayer = layers[1]
-        // listen for every animation step
-        // and pause when we reach the map steps
-        torqueLayer.on('change:time', function(changes) {
-          if (changes.step === torqueLayer.provider.getSteps() - 1) {
-            torqueLayer.pause();
-          }
-        })
-      })
+
       .error(function(err) {
         console.log(err);
       });
