@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Easy example | CartoDB.js</title>
+  <meta name="viewport" content="initial-scale=1.0, user-scalable=no" />
+  <meta http-equiv="content-type" content="text/html; charset=UTF-8"/>
+  <link rel="shortcut icon" href="http://cartodb.com/assets/favicon.ico" />
+  <style>
+    html, body, #map {
+      height: 100%;
+      padding: 0;
+      margin: 0;
+    }
+  </style>
+
+  <link rel="stylesheet" href="http://libs.cartocdn.com/cartodb.js/v3/themes/css/cartodb.css" />
+</head>
+<body>
+<div id="map"></div>
+
+<script src="http://libs.cartocdn.com/cartodb.js/v3/cartodb.js"></script>
+
+<script>
+  function main() {
+    cartodb.createVis('map', 'http://kariannemah.cartodb.com/api/v2/viz/8ebe26b0-a217-11e4-9a61-0e0c41326911/viz.json', {
+      shareable: true,
+      title: true,
+      description: true,
+      search: true,
+      tiles_loader: true,
+      center_lat: 36.7500,
+      center_lon: -119.7667,
+      zoom: 6
+    })
+
+      .error(function(err) {
+        console.log(err);
+      });
+  }
+
+  window.onload = main;
+</script>
+</body>
+</html>
