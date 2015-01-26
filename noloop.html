@@ -1,3 +1,9 @@
+javisantana’s block #9189602 February 24, 2014
+torque without looping
+
+Open in a new window.
+index.html#
+
 <!DOCTYPE html>
 <html>
 <head>
@@ -18,21 +24,18 @@
 <body>
 <div id="map"></div>
 
+<!-- include cartodb.js library -->
 <script src="http://libs.cartocdn.com/cartodb.js/v3/cartodb.js"></script>
 
 <script>
   function main() {
-    cartodb.createVis('map', 'http://kariannemah.cartodb.com/api/v2/viz/8ebe26b0-a217-11e4-9a61-0e0c41326911/viz.json', {
-      shareable: false,
-      title: false,
-      description: false,
+    cartodb.createVis('map', 'http://javi.cartodb.com/api/v2/viz/d4a5c7e4-4ad6-11e3-ab17-3085a9a9563c/viz.json', {
+      shareable: true,
+      title: true,
+      description: true,
       search: true,
-      tiles_loader: true,
-      center_lat: 36.7500,
-      center_lon: -119.7667,
-      zoom: 6
+      tiles_loader: true
     })
-
       .done(function(vis, layers) {
         // there are 3 layers
         // - base color (gray)
@@ -40,7 +43,7 @@
         // - car (blue)
 
         // torque layer is the third one (0 based index)
-        var torqueLayer = layers[1]
+        var torqueLayer = layers[0]
         // listen for every animation step
         // and pause when we reach the map steps
         torqueLayer.on('change:time', function(changes) {
@@ -59,3 +62,4 @@
 </body>
 </html>
 
+javisantana’s block #9189602 February 24, 2014
